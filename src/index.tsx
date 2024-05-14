@@ -75,7 +75,7 @@ app.frame('/', (c) => {
 // const ca = fs.readFileSync(process.env.CA);
 // const key = fs.readFileSync(process.env.KEY);
 
-const port = process.env.PORT
+const port = 2053
 // let sslOptions = {
 //   cert: cert, // fs.readFileSync('./ssl/example.crt');
 //   ca: ca, // fs.readFileSync('./ssl/example.ca-bundle');

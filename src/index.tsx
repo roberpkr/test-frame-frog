@@ -71,26 +71,26 @@ app.frame('/', (c) => {
   })
 })
 
-const cert = fs.readFileSync(process.env.CERT);
-const ca = fs.readFileSync(process.env.CA);
-const key = fs.readFileSync(process.env.KEY);
+// const cert = fs.readFileSync(process.env.CERT);
+// const ca = fs.readFileSync(process.env.CA);
+// const key = fs.readFileSync(process.env.KEY);
 
-const port = 443
-let sslOptions = {
-  cert: cert, // fs.readFileSync('./ssl/example.crt');
-  ca: ca, // fs.readFileSync('./ssl/example.ca-bundle');
-  key: key // fs.readFileSync('./ssl/example.key');
-};
+const port = 2053
+// let sslOptions = {
+//   cert: cert, // fs.readFileSync('./ssl/example.crt');
+//   ca: ca, // fs.readFileSync('./ssl/example.ca-bundle');
+//   key: key // fs.readFileSync('./ssl/example.key');
+// };
 console.log(`Server is running on port ${port}`)
 
 devtools(app, { serveStatic });
 
 serve({
   fetch: app.fetch,
-  createServer: createServer,
-  serverOptions: {
-    key: key,
-    cert: cert
-  },
+  // createServer: createServer,
+  // serverOptions: {
+  //   key: key,
+  //   cert: cert
+  // },
   port:port
 })

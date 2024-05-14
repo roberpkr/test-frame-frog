@@ -1,24 +1,16 @@
-import { Button, TextInput } from 'frog'
-import { devtools } from 'frog/dev'
 import dotenv from 'dotenv';
 import { createServer } from 'node:https'
 import fs from 'node:fs'
-dotenv.config();
 import { serve } from '@hono/node-server'
-import { serveStatic } from '@hono/node-server/serve-static'
-import { cors } from 'hono/cors'
-import { Frog } from "frog";
-import { neynar} from 'frog/hubs'
+import { serveStatic } from '@airstack/frog/serve-static'
+import { Frog,Button, TextInput  } from "@airstack/frog";
+import { devtools } from '@airstack/frog/dev'
+
 
 export const app = new Frog({
-  hub: {
-    apiUrl: "https://hubs.airstack.xyz",
-    fetchOptions: {
-      headers: {
-        "x-airstack-hubs": process.env.AIRSTACK_API_KEY,
-      }
-    }
-}});
+  verify: true,
+  apiKey: process.env.AIRSTACK_API_KEY as string
+});
 
 app.use('/*', 
 

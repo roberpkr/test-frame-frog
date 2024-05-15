@@ -2,19 +2,19 @@ import dotenv from 'dotenv';
 import { createServer } from 'node:https'
 import fs from 'node:fs'
 import { serve } from '@hono/node-server'
-import { serveStatic } from '@airstack/frog/serve-static'
-import { Frog,Button, TextInput  } from "@airstack/frog";
-import { devtools } from '@airstack/frog/dev'
+import { serveStatic } from 'frog/serve-static'
+import { Button, Frog, TextInput } from 'frog'
+import { devtools } from 'frog/dev'
+import { neynar } from 'frog/hubs'
 
 
 export const app = new Frog({
-  verify: true,
-  apiKey: process.env.AIRSTACK_API_KEY as string
-});
 
-app.use('/*', 
+  // Supply a Hub to enable frame verification.
+  hub: { apiUrl: 'https://nemes.farcaster.xyz:2281' }
+})
 
-serveStatic({ root: './public' }))
+
 
 app.frame('/', (c) => {
 
@@ -68,6 +68,7 @@ app.frame('/', (c) => {
   })
 })
 
+serveStatic({ root: './public' })
 // const cert = fs.readFileSync(process.env.CERT);
 // const ca = fs.readFileSync(process.env.CA);
 // const key = fs.readFileSync(process.env.KEY);

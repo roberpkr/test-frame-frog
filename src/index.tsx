@@ -11,8 +11,7 @@ import { Box, Heading, Text, Rows, Row,Columns,Column, Image, HStack, VStack, va
 
 export const app = new Frog({
 
-  origin: 'https://frame.cryptodefitracker.com',
-  hub: { apiUrl: 'http://localhost:2281' }
+   hub: ({ apiUrl: 'https://nemes.farcaster.xyz:2281' })
 })
 
 

@@ -6,12 +6,13 @@ import { serveStatic } from 'frog/serve-static'
 import { Button, Frog, TextInput } from 'frog'
 import { devtools } from 'frog/dev'
 import { neynar } from 'frog/hubs'
+import { Box, Heading, Text, Rows, Row,Columns,Column, Image, HStack, VStack, vars } from './ui.ts';
 
 
 export const app = new Frog({
 
-  // Supply a Hub to enable frame verification.
-  hub: { apiUrl: 'https://nemes.farcaster.xyz:2281' }
+  origin: 'https://frame.cryptodefitracker.com',
+  hub: { apiUrl: 'http://localhost:2281' }
 })
 
 
@@ -23,6 +24,18 @@ app.frame('/', (c) => {
   const fruit = inputText || buttonValue
   return c.res({
     image: (
+      <Box
+      backgroundImage="url('https://www.cryptodefitracker.com/static/media/main.011a4cd82ffd7b2a0b2be6f1536b6ae3.svg')"
+    >
+      <Rows gap="2">
+        <Row height="1/8" padding="20">
+          <HStack gap="8" grow textAlign="center">
+            <Image src="/favicon.ico" width="40" display="flex" />
+            <Heading>cryptoDefiTracker.com</Heading>
+          </HStack>
+        </Row>
+        </Rows>
+        </Box>
       <div
         style={{
           alignItems: 'center',

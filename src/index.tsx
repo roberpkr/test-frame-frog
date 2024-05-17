@@ -34,42 +34,20 @@ app.frame('/', (c) => {
             <Heading>cryptoDefiTracker.com</Heading>
           </HStack>
         </Row>
+
+        <Row alignItems="center" height="1/10"  alignVertical="center" alignHorizontal="center" >
+            <Text color="text200" size="25">
+              {status === 'response' ? `Hi, ${name}. Find below Top 5 trending DeFi projects last 48h!` : 'A crypto tracker for trending DeFi Tokens'}
+            </Text>
+          </Row>
+
+
+
+
+
         </Rows>
         </Box>
-      <div
-        style={{
-          alignItems: 'center',
-          background:
-            status === 'response'
-              ? 'linear-gradient(to right, #432889, #17101F)'
-              : 'black',
-          backgroundSize: '100% 100%',
-          display: 'flex',
-          flexDirection: 'column',
-          flexWrap: 'nowrap',
-          height: '100%',
-          justifyContent: 'center',
-          textAlign: 'center',
-          width: '100%',
-        }}
-      >
-        <div
-          style={{
-            color: 'white',
-            fontSize: 60,
-            fontStyle: 'normal',
-            letterSpacing: '-0.025em',
-            lineHeight: 1.4,
-            marginTop: 30,
-            padding: '0 120px',
-            whiteSpace: 'pre-wrap',
-          }}
-        >
-          {status === 'response'
-            ? `Nice choice.${fruit ? ` ${fruit.toUpperCase()}!!` : ''}`
-            : 'Welcome!'}
-        </div>
-      </div>
+
     ),
     intents: [
       <TextInput placeholder="Enter custom fruit..." />,
@@ -98,7 +76,7 @@ devtools(app, { serveStatic });
 
 serve({
   fetch: app.fetch,
-  // createServer: createServer,
+  createServer: createServer,
   // serverOptions: {
   //   key: key,
   //   cert: cert
